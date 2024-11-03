@@ -1,3 +1,4 @@
+/* Global Styles */
 * {
     margin: 0;
     padding: 0;
@@ -8,45 +9,10 @@
 body {
     background-color: #f3f4f6;
     color: #333;
+    overflow-x: hidden;
 }
 
-.background-container {
-    position: relative;
-    height: 100vh; /* Full viewport height */
-    overflow: hidden; /* Hide overflow for animation */
-}
-
-.background-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('img/logo.jpg'); /* Your image */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0; /* Make it invisible */
-    animation: roll 10s infinite; /* Rolling animation */
-}
-
-@keyframes roll {
-    0% {
-        transform: translateX(-100%); /* Start from left */
-        opacity: 0; /* Start invisible */
-    }
-    25% {
-        opacity: 0; /* Remain invisible */
-    }
-    75% {
-        opacity: 0; /* Remain invisible */
-    }
-    100% {
-        transform: translateX(100%); /* Move to right */
-        opacity: 0; /* Fade out */
-    }
-}
-
+/* Header */
 .header {
     background-color: #004aad;
     color: #fff;
@@ -77,6 +43,34 @@ body {
     color: #ffd700;
 }
 
+/* Background Image */
+.background-container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/logo.jpg'); /* Replace with your animated water background */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+    animation: roll 10s infinite; /* Animation for the water background */
+}
+
+@keyframes roll {
+    0% { transform: translateX(-100%); opacity: 0; }
+    25%, 75% { opacity: 0; }
+    100% { transform: translateX(100%); opacity: 0; }
+}
+
+/* Hero Section */
 .hero {
     background-color: #eaf6ff;
     padding: 60px 20px;
@@ -110,13 +104,20 @@ body {
     background-color: #00337f;
 }
 
+/* Mission Section */
 .Mission {
     background-color: #f8f9fa;
     padding: 40px 20px;
     text-align: center;
 }
 
-.Mission h2, .Mission h3 {
+.Mission h2 {
+    font-size: 30px;
+    color: blue;
+    margin-bottom: 20px;
+}
+
+.Mission h3 {
     font-size: 30px;
     color: blue;
     margin-bottom: 20px;
@@ -139,61 +140,15 @@ body {
     flex-wrap: wrap;
 }
 
-.Mission {
-    text-align: center;
-    opacity: 0; /* Start hidden for animation */
-    animation: fadeInUp 1s ease forwards;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.Mission:nth-child(1) { animation-delay: 0.1s; }
-.Mission:nth-child(2) { animation-delay: 0.2s; }
-.Mission:nth-child(3) { animation-delay: 0.3s; }
-.Mission:nth-child(4) { animation-delay: 0.4s; }
-
-.mission h2 {
-    margin-top: 10px;
-    color: #333;
-    font-size: 18px;
-}
-
-.Mission {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 2s ease-out forwards;
-    animation-delay: 0.5s;
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-h2 {
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-
-div {
-    margin-bottom: 15px;
-}
-
+/* Product Section */
 .products {
     background-color: #f8f9fa;
     padding: 40px 20px;
     text-align: center;
 }
 
-.products h1 {
+.products h1, .products h2 {
     font-size: 35px;
-    color: darkblue;
-    margin-bottom: 20px;
-}
-
-.products h2 {
-    font-size: 30px;
     color: darkblue;
     margin-bottom: 20px;
 }
@@ -207,15 +162,10 @@ div {
 
 .product {
     text-align: center;
-    opacity: 0; /* Start hidden for animation */
+    opacity: 0;
     animation: fadeInUp 1s ease forwards;
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
-
-.product:nth-child(1) { animation-delay: 0.1s; }
-.product:nth-child(2) { animation-delay: 0.2s; }
-.product:nth-child(3) { animation-delay: 0.3s; }
-.product:nth-child(4) { animation-delay: 0.4s; }
 
 .product-img {
     width: 150px;
@@ -226,7 +176,7 @@ div {
 }
 
 .product:hover img {
-    transform: scale(1.1); /* Scale on hover */
+    transform: scale(1.1);
     opacity: 0.9;
 }
 
@@ -236,17 +186,7 @@ div {
     font-size: 18px;
 }
 
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
+/* About Section */
 .about {
     background-color: #004aad;
     color: #fff;
@@ -257,7 +197,6 @@ div {
 .about h1 {
     font-size: 40px;
     margin-bottom: 10px;
-    color: #FFFFFF;
 }
 
 .about p {
@@ -267,6 +206,7 @@ div {
     color: #ddd;
 }
 
+/* Contact Section */
 .contact {
     background-color: #00509e;
     color: white;
@@ -277,12 +217,6 @@ div {
 .contact h2 {
     font-size: 30px;
     margin-bottom: 20px;
-    color: #FFFFFF;
-}
-
-.contact form {
-    max-width: 500px;
-    margin: 0 auto;
 }
 
 .contact form input, .contact form textarea {
@@ -307,7 +241,7 @@ div {
     background-color: #ffc107;
 }
 
-/* Footer Section */
+/* Footer */
 .footer {
     background-color: #333;
     color: #ccc;
@@ -333,107 +267,62 @@ div {
     margin-bottom: 10px;
 }
 
-.footer-section p, .footer-section ul li {
-    font-size: 14px;
-    color: #ccc;
-    margin-bottom: 5px;
-}
-
-.footer-section ul {
-    list-style: none;
-    padding: 0;
-}
-
-.social-icons {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-}
-
-.social-icons a img {
-    width: 24px;
-    height: 24px;
-    filter: brightness(0) invert(1);
-}
-
-.footer-bottom {
-    margin-top: 20px;
-    color: #888;
-}
-
-/* Media Queries for Responsiveness */
+/* Responsive Adjustments */
 @media (max-width: 1024px) {
-    .header nav ul {
-        gap: 10px;
-    }
-
-    .footer-content {
+    .header, .footer-content, .product-container, .Mission-container {
         flex-direction: column;
         align-items: center;
     }
 
-    .product-container {
-        justify-content: center; /* Center the product items */
-    }
-
-    .product {
-        width: 100%; /* Full width on smaller screens */
-        max-width: 200px; /* Set a maximum width */
-        margin: 10px 0; /* Add some margin */
+    .footer-section {
+        width: 100%;
     }
 }
 
 @media (max-width: 768px) {
-    .header {
+    .header nav ul {
         flex-direction: column;
-        align-items: flex-start;
+        gap: 10px;
     }
 
-    .header h1 {
-        font-size: 20px; /* Adjust header size */
+    .hero h2, .products h1, .products h2, .about h1, .contact h2 {
+        font-size: 28px;
     }
 
-    .hero h2 {
-        font-size: 28px; /* Smaller heading */
+    .cta-button, .submit-button {
+        padding: 10px 20px;
+        font-size: 14px;
     }
 
-    .hero p {
-        font-size: 16px; /* Smaller paragraph */
+    .product-img {
+        width: 100px;
     }
 
-    .products h1,
-    .products h2 {
-        font-size: 28px; /* Adjust product headings */
-    }
-
-    .footer-content {
-        flex-direction: column; /* Stack footer items */
+    .product-container, .Mission-container, .footer-content {
+        flex-direction: column;
+        align-items: center;
     }
 }
 
 @media (max-width: 480px) {
-    .header h1 {
-        font-size: 18px; /* Even smaller header */
+    .header h1, .hero h2, .products h1, .about h1, .contact h2 {
+        font-size: 24px;
     }
 
-    .hero h2 {
-        font-size: 24px; /* Smaller heading */
-    }
-
-    .hero p {
-        font-size: 14px; /* Smaller paragraph */
-    }
-
-    .products h1,
-    .products h2 {
-        font-size: 24px; /* Smaller product headings */
-    }
-
-    .contact h2 {
-        font-size: 24px; /* Smaller contact heading */
+    .footer {
+        padding: 20px 10px;
     }
 
     .footer-section {
-        width: 100%; /* Full width footer section */
+        width: 100%;
+    }
+
+    .cta-button, .submit-button {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+
+    .product-container, .Mission-container, .footer-content {
+        flex-direction: column;
     }
 }
