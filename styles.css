@@ -1,3 +1,4 @@
+/* Global Styles */
 * {
     margin: 0;
     padding: 0;
@@ -8,44 +9,10 @@
 body {
     background-color: #f3f4f6;
     color: #333;
+    overflow-x: hidden;
 }
 
-/* Background Container */
-.background-container {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-}
-
-.background-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('img/logo.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0;
-    animation: roll 10s infinite;
-}
-
-@keyframes roll {
-    0% {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    25%, 75% {
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-}
-
-/* Header Section */
+/* Header */
 .header {
     background-color: #004aad;
     color: #fff;
@@ -74,6 +41,33 @@ body {
 
 .header nav ul li a:hover {
     color: #ffd700;
+}
+
+/* Background Image */
+.background-container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/logo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+    animation: roll 10s infinite;
+}
+
+@keyframes roll {
+    0% { transform: translateX(-100%); opacity: 0; }
+    25%, 75% { opacity: 0; }
+    100% { transform: translateX(100%); opacity: 0; }
 }
 
 /* Hero Section */
@@ -115,13 +109,15 @@ body {
     background-color: #f8f9fa;
     padding: 40px 20px;
     text-align: center;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 2s ease-out forwards;
-    animation-delay: 0.5s;
 }
 
-.Mission h2, .Mission h3 {
+.Mission h2 {
+    font-size: 30px;
+    color: blue;
+    margin-bottom: 20px;
+}
+
+.Mission h3 {
     font-size: 30px;
     color: blue;
     margin-bottom: 20px;
@@ -145,13 +141,10 @@ body {
 }
 
 @keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Products Section */
+/* Product Section */
 .products {
     background-color: #f8f9fa;
     padding: 40px 20px;
@@ -159,6 +152,7 @@ body {
 }
 
 .products h1, .products h2 {
+    font-size: 35px;
     color: darkblue;
     margin-bottom: 20px;
 }
@@ -177,15 +171,23 @@ body {
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.product-img {
+    width: 150px;
+    height: auto;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product:hover img {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+.product h3 {
+    margin-top: 10px;
+    color: #333;
+    font-size: 18px;
 }
 
 /* About Section */
@@ -232,6 +234,7 @@ body {
 .contact .submit-button {
     background-color: #ffd700;
     color: #333;
+    border: none;
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
@@ -242,7 +245,7 @@ body {
     background-color: #ffc107;
 }
 
-/* Footer Section */
+/* Footer */
 .footer {
     background-color: #333;
     color: #ccc;
@@ -263,70 +266,67 @@ body {
 }
 
 .footer-section h3 {
+    font-size: 18px;
     color: #fff;
     margin-bottom: 10px;
 }
 
-.footer-section p, .footer-section ul li {
-    color: #ccc;
-    margin-bottom: 5px;
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .header, .footer-content, .product-container, .Mission-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        width: 100%;
+    }
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
     .header nav ul {
         flex-direction: column;
         gap: 10px;
     }
 
-    .footer-content, .product-container {
+    .hero h2, .products h1, .products h2, .about h1, .contact h2 {
+        font-size: 28px;
+    }
+
+    .cta-button, .submit-button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .product-img {
+        width: 100px;
+    }
+
+    .product-container, .Mission-container, .footer-content {
         flex-direction: column;
         align-items: center;
     }
+}
 
-    .container {
+@media (max-width: 480px) {
+    .header h1, .hero h2, .products h1, .about h1, .contact h2 {
+        font-size: 24px;
+    }
+
+    .footer {
+        padding: 20px 10px;
+    }
+
+    .footer-section {
+        width: 100%;
+    }
+
+    .cta-button, .submit-button {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+
+    .product-container, .Mission-container, .footer-content {
         flex-direction: column;
     }
-}
-
-.whatsapp-button {
-    position: absolute;
-    bottom: 30px;
-    left: 30px;
-    width: 50px;
-    height: 50px;
-    background-color: #25D366;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
-    transition: transform 0.3s ease;
-}
-
-.whatsapp-button:hover {
-    transform: scale(1.1);
-}
-
-.whatsapp-button img {
-    width: 60px;
-    height: 60px;
-}
-
-.watermark {
-    position: fixed;
-    z-index: 999;
-}
-
-.watermark-image {
-    width: 300px;
-    animation: moveDiagonal 10s linear infinite;
-}
-
-@keyframes moveDiagonal {
-    0% { transform: translate(-100%, -100%); }
-    25% { transform: translate(100%, -100%); }
-    50% { transform: translate(100%, 100%); }
-    75% { transform: translate(-100%, 100%); }
-    100% { transform: translate(-100%, -100%); }
 }
