@@ -1,4 +1,4 @@
-/* Global Styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -9,10 +9,47 @@
 body {
     background-color: #f3f4f6;
     color: #333;
-    overflow-x: hidden;
 }
 
-/* Header */
+.background-container {
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Hide overflow for animation */
+}
+
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/logo.jpg'); /* Your image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0; /* Make it invisible */
+    animation: roll 10s infinite; /* Rolling animation */
+}
+
+@keyframes roll {
+    0% {
+        transform: translateX(-100%); /* Start from left */
+        opacity: 0; /* Start invisible */
+    }
+    25% {
+        opacity: 0; /* Remain invisible */
+    }
+    75% {
+        opacity: 0; /* Remain invisible */
+    }
+    100% {
+        transform: translateX(100%); /* Move to right */
+        opacity: 0; /* Fade out */
+    }
+}
+
+
 .header {
     background-color: #004aad;
     color: #fff;
@@ -43,39 +80,13 @@ body {
     color: #ffd700;
 }
 
-/* Background Image */
-.background-container {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-}
 
-.background-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('img/logo.jpg'); /* Replace with your animated water background */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0;
-    animation: roll 10s infinite; /* Animation for the water background */
-}
-
-@keyframes roll {
-    0% { transform: translateX(-100%); opacity: 0; }
-    25%, 75% { opacity: 0; }
-    100% { transform: translateX(100%); opacity: 0; }
-}
-
-/* Hero Section */
 .hero {
     background-color: #eaf6ff;
     padding: 60px 20px;
     text-align: center;
 }
+
 
 .hero h2 {
     font-size: 36px;
@@ -104,7 +115,7 @@ body {
     background-color: #00337f;
 }
 
-/* Mission Section */
+
 .Mission {
     background-color: #f8f9fa;
     padding: 40px 20px;
@@ -116,23 +127,21 @@ body {
     color: blue;
     margin-bottom: 20px;
 }
-
 .Mission h3 {
     font-size: 30px;
     color: blue;
     margin-bottom: 20px;
+   
 }
-
 .Mission p {
     font-style: italic;
 }
-
 .Mission div {
     font-size: 30px;
-    color: deepskyblue;
+    color:deepskyblue;
     margin-bottom: 20px;
+    
 }
-
 .Mission-container {
     display: flex;
     justify-content: space-around;
@@ -140,15 +149,67 @@ body {
     flex-wrap: wrap;
 }
 
-/* Product Section */
+.Mission {
+    text-align: center;
+    opacity: 0; /* Start hidden for animation */
+    animation: fadeInUp 1s ease forwards;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.Mission:nth-child(1) { animation-delay: 0.1s; }
+.Mission:nth-child(2) { animation-delay: 0.2s; }
+.Mission:nth-child(3) { animation-delay: 0.3s; }
+.Mission:nth-child(4) { animation-delay: 0.4s; }
+
+
+.mission h2 {
+    margin-top: 10px;
+    color: #333;
+    font-size: 18px;
+}
+
+
+.Mission {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 2s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+div {
+    margin-bottom: 15px;
+}
+
+
+
 .products {
     background-color: #f8f9fa;
     padding: 40px 20px;
     text-align: center;
 }
 
-.products h1, .products h2 {
+.products h1 {
     font-size: 35px;
+    color: darkblue;
+    margin-bottom: 20px;
+}
+
+.products h2 {
+    font-size: 30px;
     color: darkblue;
     margin-bottom: 20px;
 }
@@ -162,10 +223,15 @@ body {
 
 .product {
     text-align: center;
-    opacity: 0;
+    opacity: 0; /* Start hidden for animation */
     animation: fadeInUp 1s ease forwards;
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
+
+.product:nth-child(1) { animation-delay: 0.1s; }
+.product:nth-child(2) { animation-delay: 0.2s; }
+.product:nth-child(3) { animation-delay: 0.3s; }
+.product:nth-child(4) { animation-delay: 0.4s; }
 
 .product-img {
     width: 150px;
@@ -176,7 +242,7 @@ body {
 }
 
 .product:hover img {
-    transform: scale(1.1);
+    transform: scale(1.1); /* Scale on hover */
     opacity: 0.9;
 }
 
@@ -186,7 +252,19 @@ body {
     font-size: 18px;
 }
 
-/* About Section */
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 .about {
     background-color: #004aad;
     color: #fff;
@@ -197,6 +275,7 @@ body {
 .about h1 {
     font-size: 40px;
     margin-bottom: 10px;
+    color: #FFFFFF;
 }
 
 .about p {
@@ -206,7 +285,7 @@ body {
     color: #ddd;
 }
 
-/* Contact Section */
+
 .contact {
     background-color: #00509e;
     color: white;
@@ -217,6 +296,12 @@ body {
 .contact h2 {
     font-size: 30px;
     margin-bottom: 20px;
+    color: #FFFFFF;
+}
+
+.contact form {
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 .contact form input, .contact form textarea {
@@ -241,7 +326,7 @@ body {
     background-color: #ffc107;
 }
 
-/* Footer */
+/* Footer Section */
 .footer {
     background-color: #333;
     color: #ccc;
@@ -267,17 +352,34 @@ body {
     margin-bottom: 10px;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 1024px) {
-    .header, .footer-content, .product-container, .Mission-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer-section {
-        width: 100%;
-    }
+.footer-section p, .footer-section ul li {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 5px;
 }
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.social-icons a img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    color: #888;
+}
+
 
 @media (max-width: 768px) {
     .header nav ul {
@@ -285,44 +387,102 @@ body {
         gap: 10px;
     }
 
-    .hero h2, .products h1, .products h2, .about h1, .contact h2 {
-        font-size: 28px;
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .cta-button, .submit-button {
-        padding: 10px 20px;
-        font-size: 14px;
-    }
-
-    .product-img {
-        width: 100px;
-    }
-
-    .product-container, .Mission-container, .footer-content {
+    .product-container {
         flex-direction: column;
         align-items: center;
     }
 }
 
-@media (max-width: 480px) {
-    .header h1, .hero h2, .products h1, .about h1, .contact h2 {
-        font-size: 24px;
-    }
 
-    .footer {
-        padding: 20px 10px;
-    }
+.whatsapp-button {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #25D366;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    transition: transform 0.3s ease;
+}
 
-    .footer-section {
-        width: 100%;
-    }
+.whatsapp-button:hover {
+    transform: scale(1.1);
+}
 
-    .cta-button, .submit-button {
-        font-size: 12px;
-        padding: 8px 16px;
-    }
+.whatsapp-button img {
+    width: 60px;
+    height: 60px;
+}
 
-    .product-container, .Mission-container, .footer-content {
-        flex-direction: column;
+
+.watermark {
+    position: fixed; /* Keep it fixed on the screen */
+    z-index: 999; /* Ensure it appears above other content */
+}
+
+.watermark-image {
+    width: 300px; /* Set desired width */
+    height: auto; /* Maintain aspect ratio */
+    animation: moveDiagonal 10s linear infinite; /* Animation name, duration, and type */
+}
+
+
+@keyframes moveDiagonal {
+    0% {
+        transform: translate(-100%, -100%); /* Start from the top left corner */
+    }
+    25% {
+        transform: translate(100%, -100%); /* Move to the top right corner */
+    }
+    50% {
+        transform: translate(100%, 100%); /* Move to the bottom right corner */
+    }
+    75% {
+        transform: translate(-100%, 100%); /* Move to the bottom left corner */
+    }
+    100% {
+        transform: translate(-100%, -100%); /* Return to the starting position */
     }
 }
+
+h3 {
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+div {
+    margin-bottom: 15px;
+}
+
+ .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .column {
+            flex: 1;
+            padding: 15px;
+            min-width: 300px;
+        }
+        h2 {
+            color: #f1c40f; /* Highlight color for heading */
+        }
+        p {
+            line-height: 1.6;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+        
