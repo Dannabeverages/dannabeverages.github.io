@@ -18,37 +18,6 @@ body {
 }
 
 
-.background-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('img/logo.jpg'); /* Your image */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0; /* Make it invisible */
-    animation: roll 10s infinite; /* Rolling animation */
-}
-
-@keyframes roll {
-    0% {
-        transform: translateX(-100%); /* Start from left */
-        opacity: 0; /* Start invisible */
-    }
-    25% {
-        opacity: 0; /* Remain invisible */
-    }
-    75% {
-        opacity: 0; /* Remain invisible */
-    }
-    100% {
-        transform: translateX(100%); /* Move to right */
-        opacity: 0; /* Fade out */
-    }
-}
-
 
 .header {
     background-color: #004aad;
