@@ -109,7 +109,7 @@ nav ul li a:hover {
 
 /* Responsive images */
 img {
-    max-width: 100%;
+    max-width: 50%;
     height: auto;
     border-radius: 10px; /* Rounded corners for images */
 }
