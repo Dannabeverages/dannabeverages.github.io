@@ -11,15 +11,168 @@
    
     <header class="header">
        <!--img src="img/danna.jpg"--> <!--h1>Danna Beverages</h1-->
-        <nav>
-            <ul>
-                <h3><li><a href="#products">Products</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#Mission">Mission</a></li>
-                <li><a href="#contact">Contact</a></li></h3>
-            </ul>
-        </nav>
+       <nav>
+    <!-- Hamburger button -->
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    
+    <!-- Navigation menu -->
+    <ul class="nav-menu" id="navMenu">
+        <li><a href="#products">Products</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#Mission">Mission</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
     </header>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Auto-Sliding Carousel</title>
+    <style>
+        /* Carousel container */
+        .carousel {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        /* Carousel images */
+        .carousel img {
+            width: 100%;
+            display: none;
+            transition: opacity 0.5s ease; /* Smooth transition for sliding effect */
+        }
+
+        /* Show the active image */
+        .carousel img.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Left and right navigation arrows */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.3s;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        /* Position the "prev button" to the left */
+        .prev {
+            left: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        /* Add a background color on hover */
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Navigation dots */
+        .dots {
+            text-align: center;
+            position: absolute;
+            bottom: 15px;
+            width: 100%;
+        }
+
+        .dots span {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .dots .active {
+            background-color: #717171;
+        }
+    </style>
+</head>
+<body>
+
+<div class="carousel">
+    <!-- Images -->
+    <img src="img/600.png" alt="Slide 1" class="active">
+    <img src="img/18.png" alt="Slide 2">
+    <img src="img/loc.jpg" alt="Slide 3">
+    <!--img src="image4.jpg" alt="Slide 4"-->
+
+    <!-- Left and right controls -->
+    <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+    <a class="next" onclick="changeSlide(1)">&#10095;</a>
+
+    <!-- Dots at the bottom of the carousel -->
+    <div class="dots">
+        <span onclick="currentSlide(1)"></span>
+        <span onclick="currentSlide(2)"></span>
+        <span onclick="currentSlide(3)"></span>
+        <span onclick="currentSlide(4)"></span>
+    </div>
+</div>
+
+<script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".carousel img");
+    const dots = document.querySelectorAll(".dots span");
+
+    // Show a specific slide based on index
+    function showSlide(n) {
+        // Wrap around to the first slide if we go past the last one
+        slideIndex = (n + slides.length) % slides.length;
+        slides.forEach((slide, index) => {
+            slide.classList.remove("active");
+            dots[index].classList.remove("active");
+        });
+        slides[slideIndex].classList.add("active");
+        dots[slideIndex].classList.add("active");
+    }
+
+    // Move to the next slide
+    function nextSlide() {
+        showSlide(slideIndex + 1);
+    }
+
+    // Change slides manually using arrows
+    function changeSlide(n) {
+        showSlide(slideIndex + n);
+    }
+
+    // Select a specific slide with dots
+    function currentSlide(n) {
+        showSlide(n - 1);
+    }
+
+    // Auto-slide every 3 seconds
+    setInterval(nextSlide, 3000);
+</script>
+
+
+
+
 
 
     <section class="hero">
@@ -89,6 +242,7 @@ community.</p></h3>
         </div>
     </section>
 
+<center><img src="img/location.jpg" style="width:1200px; height:1000px;"></center>
     
     <section id="about" class="about">
         <h1>About Us</h1>
