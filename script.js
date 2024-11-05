@@ -37,3 +37,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     observer.observe(missionSection);
 });
+    function toggleMenu() {
+        var navMenu = document.getElementById("navMenu");
+        navMenu.classList.toggle("active");
+    }
+
+    
