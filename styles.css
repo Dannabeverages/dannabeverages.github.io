@@ -116,84 +116,34 @@ body {
 }
 
 
-.Mission {
-    background-color: #f8f9fa;
-    padding: 40px 20px;
+/* Mission and Vision */
+.Mission-container, .OurVision-container {
+    max-width: 800px;
+    margin: 0 auto;
     text-align: center;
+    color: #333;
+    line-height: 1.6;
 }
 
-.Mission h2 {
-    font-size: 30px;
-    color: blue;
-    margin-bottom: 20px;
-}
-.Mission h3 {
-    font-size: 30px;
-    color: blue;
-    margin-bottom: 20px;
-   
-}
-.Mission p {
+.Mission p, .OurVision p {
+    margin-top: 0.5rem;
+    color: deepskyblue;
     font-style: italic;
 }
-.Mission div {
-    font-size: 30px;
-    color:deepskyblue;
-    margin-bottom: 20px;
-    
+
+/* Core Values */
+.CoreValues-container h3 {
+    color: #004466;
+    margin-top: 1.5rem;
+    font-weight: bold;
 }
-.Mission-container {
-    display: flex;
-    justify-content: space-around;
-    gap: 20px;
-    flex-wrap: wrap;
+.CoreValue p{
+    color: blue;
 }
-
-.Mission {
-    text-align: center;
-    opacity: 0; /* Start hidden for animation */
-    animation: fadeInUp 1s ease forwards;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+.CoreValues-container p {
+    color: #555;
+    margin-top: 0.5rem;
 }
-
-.Mission:nth-child(1) { animation-delay: 0.1s; }
-.Mission:nth-child(2) { animation-delay: 0.2s; }
-.Mission:nth-child(3) { animation-delay: 0.3s; }
-.Mission:nth-child(4) { animation-delay: 0.4s; }
-
-
-.mission h2 {
-    margin-top: 10px;
-    color: #333;
-    font-size: 18px;
-}
-
-
-.Mission {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 2s ease-out forwards;
-    animation-delay: 0.5s;
-}
-
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-h2 {
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-
-div {
-    margin-bottom: 15px;
-}
-
 
 
 .products {
@@ -400,28 +350,16 @@ div {
 
 
 .whatsapp-button {
-    position: absolute;
-    bottom: 30px;
-    left: 30px;
-    width: 50px;
-    height: 50px;
-    background-color: #25D366;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    z-index: 1000;
     transition: transform 0.3s ease;
+    
 }
 
 .whatsapp-button:hover {
     transform: scale(1.1);
-}
-
-.whatsapp-button img {
-    width: 60px;
-    height: 60px;
 }
 
 
