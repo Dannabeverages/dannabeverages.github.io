@@ -107,12 +107,8 @@ nav ul li a:hover {
     margin: 10px 0; /* Spacing between columns */
 }
 
-/* Responsive images */
-img {
-    width:1200px;
-    height:1000px;
-    border-radius: 10px; /* Rounded corners for images */
-}
+
+    
 
 /* Footer styles */
 .footer {
